@@ -27,7 +27,6 @@
 
 <script>
 import * as echarts from 'echarts'
-
 export default {
   name: 'SaleChartView',
   data() {
@@ -37,7 +36,6 @@ export default {
     }
   },
   methods: {
-
     drawLine(id) {
       this.charts = echarts.init(document.getElementById(id))
       this.charts.setOption({
