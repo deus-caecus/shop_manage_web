@@ -18,6 +18,11 @@ export default defineConfig({
       resolvers: [ElementPlusResolver()],
     }),
   ],
+  server:{
+    host:'0.0.0.0' ,//ip地址
+    port: 80, // 设置服务启动端口号
+    open: true, // 设置服务启动时是否自动打开浏览器
+  },
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),
