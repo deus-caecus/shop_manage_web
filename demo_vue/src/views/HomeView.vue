@@ -42,7 +42,8 @@
     <el-container height="100%">
       <el-aside class="aside">
         <el-menu active-text-color="#ffd04b" background-color="#2C2C2C" class="el-menu-vertical-demo e-menu"
-          text-color="#fff" @open="handleOpen" @close="handleClose" default-active="1-1" :router="true">
+          text-color="#fff" @open="handleOpen" @close="handleClose" default-active="/BusinessManagement/SaleChart"
+          :router="true">
           <el-sub-menu index="1" class="e-menu">
             <template #title>
               <el-icon>
@@ -116,7 +117,7 @@
             <el-menu-item index="/OtherProductSettings/AdvertisementSettings">广告设置</el-menu-item>
 
           </el-sub-menu>
-          <el-sub-menu  class="e-menu">
+          <el-sub-menu class="e-menu">
             <template #title>
               <el-icon>
                 <PhoneFilled />
