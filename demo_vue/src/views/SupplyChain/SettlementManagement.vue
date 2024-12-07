@@ -120,17 +120,14 @@ export default {
     <el-table-column prop="settlementStatus" label="结算状态" width="180">
       <template #default="scope">
         <el-select v-model="value" placeholder="Select" style="width: 120px">
-      <el-option
-        v-for="item in payment_status"
-        :key="item.value"
-        :label="item.label"
-        :value="item.value"
-      />
+          <el-option
+            v-for="item in payment_status"
+            :key="item.value"
+            :label="item.label"
+            :value="item.value"
+          />
     </el-select>
-        <!-- <el-checkbox-group v-model="scope.row.settlementStatus">
-          <el-checkbox label="已支付" />
-          <el-checkbox label="未支付" />
-        </el-checkbox-group> -->
+
       </template>
     </el-table-column>
     <el-table-column label="支付凭证" width="180">
