@@ -1,0 +1,3 @@
+<template>
+  WarehousingGoods
+</template>

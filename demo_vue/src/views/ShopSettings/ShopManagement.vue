@@ -1,0 +1,3 @@
+<template>
+  ShopManagement
+</template>

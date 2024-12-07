@@ -1,0 +1,3 @@
+<template>
+  GoodsSaleStatistic
+</template>
