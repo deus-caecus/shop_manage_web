@@ -103,8 +103,8 @@
               </el-icon>
               <span>店铺设置</span>
             </template>
-            <el-menu-item index="/ShopSettings/ShelvesManagement">店铺管理</el-menu-item>
-            <el-menu-item index="/ShopSettings/ShopManagement">货架管理</el-menu-item>
+            <el-menu-item index="/ShopSettings/ShopManagement">店铺管理</el-menu-item>
+            <el-menu-item index="/ShopSettings/ShelvesManagement">货架管理</el-menu-item>
           </el-sub-menu>
           <el-sub-menu index="7" class="e-menu">
             <template #title>
