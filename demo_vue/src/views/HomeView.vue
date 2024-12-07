@@ -131,7 +131,6 @@
       </el-aside>
       <el-main class="el-main">
         <router-view></router-view>
-        <!-- <SaleChartView /> -->
       </el-main>
     </el-container>
   </el-container>

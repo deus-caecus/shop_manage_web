@@ -21,6 +21,7 @@ const router = createRouter({
       path: '/',
       name: 'Home',
       component: () => import('@/views/HomeView.vue'),
+      redirect: '/BusinessManagement/SaleChart',
       children:
         [
           ...BusinessManagementChildren,
