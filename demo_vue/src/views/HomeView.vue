@@ -50,8 +50,8 @@
               </el-icon>
               <span>营业管理</span>
             </template>
-            <el-menu-item index="/BusinessManagement/GoodsSaleStatistic">营业报表</el-menu-item>
-            <el-menu-item index="/BusinessManagement/SaleChart">商品销售统计</el-menu-item>
+            <el-menu-item index="/BusinessManagement/SaleChart">营业报表</el-menu-item>
+            <el-menu-item index="/BusinessManagement/GoodsSaleStatistic">商品销售统计</el-menu-item>
             <el-menu-item index="/BusinessManagement/SaleInvoicesQuery">销售单据查询</el-menu-item>
           </el-sub-menu>
           <el-sub-menu index="2" class="e-menu">
