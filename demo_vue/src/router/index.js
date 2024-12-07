@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import BusinessManagementChildren from './SubmenuRoutes/BusinessManagementRoutes'
-import GoodsManagementChildern from './SubmenuRoutes/GoodsManagementRoutes'
+import GoodsManagementChildren from './SubmenuRoutes/GoodsManagementRoutes'
 import MemberManagementChildren from './SubmenuRoutes/MemberManagementRoutes'
 import OtherProductSettingsChildren from './SubmenuRoutes/OtherProductSettingsRoutes'
 import ShopSettingsChildren from './SubmenuRoutes/ShopSettingsRoutes'
@@ -25,7 +25,7 @@ const router = createRouter({
       children:
         [
           ...BusinessManagementChildren,
-          ...GoodsManagementChildern,
+          ...GoodsManagementChildren,
           ...MemberManagementChildren,
           ...OtherProductSettingsChildren,
           ...ShopSettingsChildren,
