@@ -12,14 +12,15 @@ const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
-      path: '/Login',
-      name: 'Login',
+      path: '/',
+      redirect: '/login',
+    },
+    {
+      path: '/login',
       component: () => import('@/views/LoginView.vue'),
     },
     {
-      path: '/',
-      name: 'Home',
-      alias: '/home',
+      path: '/home',
       component: () => import('@/views/HomeView.vue'),
       redirect: '/BusinessManagement/SaleChart',
       children: [

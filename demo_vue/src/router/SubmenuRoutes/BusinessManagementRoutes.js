@@ -1,6 +1,6 @@
-import GoodsSaleStatistic from '@/views/BusinessManagement/GoodsSaleStatistic.vue';
-import SaleChart from '@/views/BusinessManagement/SaleChart.vue';
-import SaleInvoicesQuery from '@/views/BusinessManagement/SaleInvoicesQuery.vue';
+import GoodsSaleStatistic from '@/views/BusinessManagement/GoodsSaleStatistic.vue'
+import SaleChart from '@/views/BusinessManagement/SaleChart.vue'
+import SaleInvoicesQuery from '@/views/BusinessManagement/SaleInvoicesQuery.vue'
 
 const BusinessManagementChildren = [
   {
@@ -16,8 +16,8 @@ const BusinessManagementChildren = [
   {
     path: 'BusinessManagement/SaleInvoicesQuery',
     name: 'SaleInvoicesQuery',
-    component :SaleInvoicesQuery,
-  }
-];
+    component: SaleInvoicesQuery,
+  },
+]
 
-export default BusinessManagementChildren;
+export default BusinessManagementChildren

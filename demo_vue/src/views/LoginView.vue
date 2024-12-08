@@ -1,14 +1,29 @@
 <script setup>
-import router from '@/router';
-
-// const loginData = {
-//   username: "",
-//   password: ""
-// }
+import { loginService } from '@/api/login';
+import { ref } from 'vue';
+const loginData = ref({
+  storeId: "",
+  userName: "",
+  passWord: ""
+})
 const login = () => {
-
-  router.push('/home')
+  console.log("ssssss");
+  let result = loginService(loginData);
+  console.log(result)
+  if (result.code == 200) {
+    alert('登录成功!')
+  } else {
+    alert('登录失败!')
+  }
 }
+const clearLoginData = () => {
+  loginData.value = {
+    storeId: '',
+    username: '',
+    password: '',
+  }
+}
+
 </script>
 
 <template>
@@ -16,30 +31,21 @@ const login = () => {
     <h1>商超管理系统</h1>
     <div class="form-container">
       <h2>登录</h2>
-      <form action="/login" method="post">
-        <div class="form-group">
-          <label for="store-id">店铺编号：</label>
-          <input type="text" id="store-id" name="store-id" placeholder="请输入店铺编号">
-        </div>
-        <div class="form-group">
-          <label for="username">账号：</label>
-          <input type="text" id="username" name="username" placeholder="请输入账号">
-        </div>
-        <div class="form-group">
-          <label for="password">密码：</label>
-          <input type="password" id="password" name="password" placeholder="请输入密码">
-        </div>
-        <div class="form-group">
-          <label for="captcha" id="captcha-label">验证码：</label>
-          <input type="text" id="captcha" name="captcha" placeholder="请输入验证码">
-          <img alt="验证码" id="captcha-image">
-
-        </div>
-        <div class="form-group">
-          <a href="#" id="captcha-refresh">看不清？换一张</a>
-        </div>
-        <button type="submit" @click="login()">登录</button>
-      </form>
+      <el-form action="/login" :model="loginData">
+        <el-form-item label="店铺编号">
+          <el-input v-model="loginData.storeId" />
+        </el-form-item>
+        <el-form-item label="用户名  ">
+          <el-input v-model="loginData.userName" />
+        </el-form-item>
+        <el-form-item label="密码    " type="password">
+          <el-input v-model="loginData.passWord" show-password />
+        </el-form-item>
+        <el-form-item label="验证码    ">
+          <el-input />
+        </el-form-item>
+        <el-button @click="login, clearLoginData">登录</el-button>
+      </el-form>
     </div>
   </div>
 </template>
