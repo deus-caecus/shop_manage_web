@@ -6,6 +6,7 @@ import router from '@/router';
 //   password: ""
 // }
 const login = () => {
+
   router.push('/home')
 }
 </script>
