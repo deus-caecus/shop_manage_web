@@ -1,4 +1,8 @@
 <script setup>
+const loginData = {
+  username: "",
+  password: ""
+}
 
 </script>
 
@@ -34,7 +38,7 @@
     </div>
   </div>
 </template>
-<style>
+<style scoped>
 body {
   font-family: Arial, sans-serif;
   background-color: #f5f5f5;
@@ -58,6 +62,10 @@ body {
   max-height: 600px;
   width: 40vw;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  left: 30%;
+  top: 10%;
+
 }
 
 h1 {

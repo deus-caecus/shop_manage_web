@@ -1,7 +1,5 @@
 <script setup>
-//
-
-//
+import router from '@/router';
 </script>
 <style scoped>
 .homecontainer {
@@ -36,7 +34,7 @@
       <span>
         <el-text class="mx-1" type="info">欢迎登录!:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</el-text>
         <el-text class="mx-1" type="info">admin&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</el-text>
-        <el-button type="danger" round>退出</el-button>
+        <el-button type="danger" round @click="router.push('/Login')">退出</el-button>
       </span>
     </el-header>
     <el-container height="100%">
