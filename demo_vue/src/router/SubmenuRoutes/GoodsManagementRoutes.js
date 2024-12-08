@@ -2,7 +2,7 @@
 import AddingGoodsShortcut from '@/views/GoodsManagement/AddingGoodsShortcut.vue';
 import GoodsDataManagement from '@/views/GoodsManagement/GoodsDataManagement.vue';
 
-const GoodsManagementChildern =[
+const GoodsManagementChildren =[
   {
     path: 'GoodsManagement/AddingGoodsShortcut',
     name: 'AddingGoodsShortcut',
@@ -15,4 +15,4 @@ const GoodsManagementChildern =[
   }
 ];
 
-export default GoodsManagementChildern
+export default GoodsManagementChildren
