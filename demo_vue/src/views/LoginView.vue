@@ -1,9 +1,13 @@
 <script setup>
-const loginData = {
-  username: "",
-  password: ""
-}
+import router from '@/router';
 
+// const loginData = {
+//   username: "",
+//   password: ""
+// }
+const login = () => {
+  router.push('/home')
+}
 </script>
 
 <template>
@@ -33,7 +37,7 @@ const loginData = {
         <div class="form-group">
           <a href="#" id="captcha-refresh">看不清？换一张</a>
         </div>
-        <button type="submit">登录</button>
+        <button type="submit" @click="login()">登录</button>
       </form>
     </div>
   </div>

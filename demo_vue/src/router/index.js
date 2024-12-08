@@ -11,28 +11,27 @@ import SupplyChainChildren from '@/router/SubmenuRoutes/SupplyChainRoutes'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
-
     {
       path: '/Login',
       name: 'Login',
       component: () => import('@/views/LoginView.vue'),
-     },
-     {
+    },
+    {
       path: '/',
       name: 'Home',
+      alias: '/home',
       component: () => import('@/views/HomeView.vue'),
       redirect: '/BusinessManagement/SaleChart',
-      children:
-        [
-          ...BusinessManagementChildren,
-          ...GoodsManagementChildren,
-          ...MemberManagementChildren,
-          ...OtherProductSettingsChildren,
-          ...ShopSettingsChildren,
-          ...StaffManagementChildren,
-          ...StockManagementChildren,
-          ...SupplyChainChildren,
-        ]
+      children: [
+        ...BusinessManagementChildren,
+        ...GoodsManagementChildren,
+        ...MemberManagementChildren,
+        ...OtherProductSettingsChildren,
+        ...ShopSettingsChildren,
+        ...StaffManagementChildren,
+        ...StockManagementChildren,
+        ...SupplyChainChildren,
+      ],
     },
   ],
 })
