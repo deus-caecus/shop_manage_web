@@ -3,19 +3,21 @@ import { loginService } from '@/api/login';
 import { ref } from 'vue';
 const loginData = ref({
   storeId: "",
-  userName: "",
-  passWord: ""
+  account: "",
+  passwordHash: ""
 })
-const login = () => {
+const login = async () => {
   console.log("ssssss");
-  let result = loginService(loginData);
-  console.log(result)
+  let result = await loginService(loginData.value);
+  console.log("2222", result)
   if (result.code == 200) {
     alert('登录成功!')
   } else {
-    alert('登录失败!')
+    alert('登录失败003!')
   }
+
 }
+
 const clearLoginData = () => {
   loginData.value = {
     storeId: '',
@@ -36,15 +38,15 @@ const clearLoginData = () => {
           <el-input v-model="loginData.storeId" />
         </el-form-item>
         <el-form-item label="用户名  ">
-          <el-input v-model="loginData.userName" />
+          <el-input v-model="loginData.account" />
         </el-form-item>
-        <el-form-item label="密码    " type="password">
-          <el-input v-model="loginData.passWord" show-password />
+        <el-form-item label="密码    ">
+          <el-input v-model="loginData.passwordHash" show-password type="password" />
         </el-form-item>
         <el-form-item label="验证码    ">
           <el-input />
         </el-form-item>
-        <el-button @click="login, clearLoginData">登录</el-button>
+        <el-button @click="login(), clearLoginData">登录</el-button>
       </el-form>
     </div>
   </div>
