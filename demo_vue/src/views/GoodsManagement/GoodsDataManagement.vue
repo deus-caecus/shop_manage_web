@@ -1,22 +1,23 @@
 <template>
   <div class="product-management-container">
-    <el-row>
-      <el-col :span="6">
+    <el-row style="margin-bottom: 20px;">
+      <el-col :span="3">
         <el-button type="primary" @click="addCategory">添加分类</el-button>
       </el-col>
-      <el-col :span="6">
+      <el-col :span="4">
         <el-select v-model="category" placeholder="全部分类">
           <el-option v-for="item in categories" :key="item.value" :label="item.label" :value="item.value"></el-option>
         </el-select>
       </el-col>
-      <el-col :span="6">
+      <el-col :span="4" style = "margin-left: 20px;">
         <el-checkbox v-model="showOnlyWhole">只显示整售商品</el-checkbox>
       </el-col>
-      <el-col :span="6">
-        <el-input v-model="searchQuery" placeholder="请输入商品名/#商品编号/商品类别" @keyup.enter="searchProducts"></el-input>
+      <el-col :span="7" style = "display:flex ;align-items:center ; margin-right: 20px;">
+        <el-input v-model="searchQuery"
+        placeholder="请输入商品名/#商品编号/商品类别" @keyup.enter="searchProducts"  ></el-input>
         <el-button type="primary" @click="searchProducts">查询</el-button>
       </el-col>
-      <el-col :span="6">
+      <el-col :span="3">
         <el-button type="primary" @click="exportProducts">导出</el-button>
       </el-col>
     </el-row>

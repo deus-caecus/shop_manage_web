@@ -1,12 +1,14 @@
 <script setup>
 import { loginService } from '@/api/login';
 import { ref } from 'vue';
+
 const loginData = ref({
   storeId: "",
   userName: "",
   passWord: ""
 })
 const login = () => {
+
   console.log("ssssss");
   let result = loginService(loginData);
   console.log(result)
@@ -44,7 +46,7 @@ const clearLoginData = () => {
         <el-form-item label="验证码    ">
           <el-input />
         </el-form-item>
-        <el-button @click="login, clearLoginData">登录</el-button>
+        <el-button @click=" login()/* clearLoginData() */ ">登录</el-button>
       </el-form>
     </div>
   </div>

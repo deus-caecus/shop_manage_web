@@ -81,17 +81,20 @@ export default {
         <el-table-column prop="name" label="名称" width="150"></el-table-column>
         <el-table-column prop="contactName" label="联系人" width="150"></el-table-column>
         <el-table-column prop="contactPhone" label="联系电话" width="150"></el-table-column>
-        <el-table-column prop="bankCardNumber" label="银行卡号" width="150"></el-table-column>
+        <el-table-column prop="bankCardNumber" label="银行卡号" width="170"></el-table-column>
         <el-table-column prop="bankName" label="开户行" width="150"></el-table-column>
         <el-table-column prop="businessScope" label="业务范围" width="150"></el-table-column>
-        <el-table-column prop="status" label="状态" width="150">
+        <el-table-column prop="status" label="状态" width="100">
           <template #default="scope">
             <el-tag :type="scope.row.status === '停用' ? 'danger' : 'success'">{{ scope.row.status }}</el-tag>
           </template>
         </el-table-column>
-        <el-table-column label="操作" width="150">
+        <el-table-column label="操作" width="170" >
+          <template #header>
+            <span style="margin-left:30px; display: flex;">操作</span> <!-- 使用flex布局和margin-left: auto;使文本靠右 -->
+          </template>
           <template #default="scope">
-            <el-checkbox v-model="scope.row.checked" />
+            <el-checkbox v-model="scope.row.checked" style="margin: 10px ;" />
             <el-button type="primary" size="small" @click="handleEdit(scope.row)">编辑</el-button>
             <el-button type="danger" size="small" @click="handleDelete(scope.row)">删除</el-button>
           </template>

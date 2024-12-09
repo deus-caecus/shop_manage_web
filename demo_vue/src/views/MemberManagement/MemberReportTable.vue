@@ -44,7 +44,8 @@ export default {
   <div class="member-recharge-container">
     <el-input v-model="searchQuery" placeholder="请输入会员姓名/ID" style="width: 200px; margin-right: 20px;"></el-input>
     <el-button type="primary" @click="searchItems">查询</el-button>
-
+    <el-button type="primary" @click="addRecord">添加</el-button>
+    <el-button type="danger" @click="deleteSelectedItems">删除</el-button>
     <el-table :data="rechargeRecords" style="width: 100%">
       <el-table-column prop="id" label="序号"></el-table-column>
       <el-table-column prop="memberId" label="ID"></el-table-column>
@@ -61,8 +62,6 @@ export default {
         </template>
       </el-table-column>
     </el-table>
-    <el-button type="primary" @click="addRecord">添加</el-button>
-    <el-button type="danger" @click="deleteSelectedItems">删除</el-button>
     <el-footer>
       <Pagination/>
     </el-footer>

@@ -1,30 +1,17 @@
 <template>
-  <div class="product-management-container">
+  <div>
     <el-row>
-      <el-col :span="6">
-        <el-date-picker
-          v-model="startDate"
-          type="date"
-          placeholder="选择开始日期"
-          format="yyyy-MM-dd"
-          value-format="yyyy-MM-dd"
-        ></el-date-picker>
+      <el-col :span="8">
+          <el-date-picker v-model="value2" type="daterange" unlink-panels range-separator="至"
+            start-placeholder="开始日期" end-placeholder="结束日期" :shortcuts="shortcuts" :size="size" />
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
       </el-col>
-      <el-col :span="6">
-        <span>至</span>
-        <el-date-picker
-          v-model="endDate"
-          type="date"
-          placeholder="选择结束日期"
-          format="yyyy-MM-dd"
-          value-format="yyyy-MM-dd"
-        ></el-date-picker>
-      </el-col>
-      <el-col :span="6">
-        <el-input v-model="searchQuery" placeholder="请输入商品名称/条码"></el-input>
+      <el-col :span="5" style="display: flex;align-items: center; ;">
+        <el-input v-model="searchQuery" placeholder="请输入商品名称/条码" style="margin-right:10px ;"></el-input>
         <el-button type="primary" @click="searchProducts">查询</el-button>
       </el-col>
-      <el-col :span="6">
+      <el-col :span="6" style="margin-left:50px ;">
         <el-button type="primary" @click="exportProducts">导出</el-button>
       </el-col>
     </el-row>
@@ -97,9 +84,7 @@ export default {
 </script>
 
 <style scoped>
-.product-management-container {
-  padding: 20px;
-}
+
 
 .status-container {
   display: flex;
