@@ -4,17 +4,17 @@ import SaleInvoicesQuery from '@/views/BusinessManagement/SaleInvoicesQuery.vue'
 
 const BusinessManagementChildren = [
   {
-    path: 'BusinessManagement/GoodsSaleStatistic',
+    path: '/BusinessManagement/GoodsSaleStatistic',
     name: 'GoodsSaleStatistic',
     component: GoodsSaleStatistic,
   },
   {
-    path: 'BusinessManagement/SaleChart',
+    path: '/BusinessManagement/SaleChart',
     name: 'SaleChart',
     component: SaleChart,
   },
   {
-    path: 'BusinessManagement/SaleInvoicesQuery',
+    path: '/BusinessManagement/SaleInvoicesQuery',
     name: 'SaleInvoicesQuery',
     component: SaleInvoicesQuery,
   },

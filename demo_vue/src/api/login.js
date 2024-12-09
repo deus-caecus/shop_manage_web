@@ -1,10 +1,9 @@
 import request from '@/utils/request'
 
-export const loginService = async (loginData) => {
-  await request
+export const loginService = (loginData) => {
+  return request
     .post('/login', loginData)
     .then((response) => {
-      console.log('11111', response)
       return response
     })
     .catch(() => {

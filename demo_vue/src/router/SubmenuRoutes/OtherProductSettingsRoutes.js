@@ -1,12 +1,12 @@
 // OtherProductSettingsRoutes.js
-import AdvertisementSettings from '@/views/OtherProductSettings/AdvertisementSettings.vue';
+import AdvertisementSettings from '@/views/OtherProductSettings/AdvertisementSettings.vue'
 
-const OtherProductSettingsChildren =  [
+const OtherProductSettingsChildren = [
   {
-    path: 'OtherProductSettings/AdvertisementSettings',
+    path: '/OtherProductSettings/AdvertisementSettings',
     name: 'AdvertisementSettings',
     component: AdvertisementSettings,
-  }
-];
+  },
+]
 
 export default OtherProductSettingsChildren

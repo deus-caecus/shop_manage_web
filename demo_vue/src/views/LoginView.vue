@@ -1,5 +1,6 @@
 <script setup>
 import { loginService } from '@/api/login';
+import router from '@/router';
 import { ref } from 'vue';
 const loginData = ref({
   storeId: "",
@@ -12,8 +13,9 @@ const login = async () => {
   console.log("2222", result)
   if (result.code == 200) {
     alert('登录成功!')
+    router.push('/BusinessManagement/SaleChart')
   } else {
-    alert('登录失败003!')
+    alert('登录失败!')
   }
 
 }
