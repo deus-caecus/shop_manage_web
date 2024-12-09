@@ -1,4 +1,4 @@
-import interceptor from '@/utils/interceptor'
+import interceptor from '@/utils/request'
 
 export const supplierQueryService = () => {
   return interceptor
