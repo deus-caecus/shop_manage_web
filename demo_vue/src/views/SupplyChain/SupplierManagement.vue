@@ -47,7 +47,6 @@ export default {
 <template>
   <div class="common-layout">
     <el-container>
-
       <el-main>
         <el-table :data="tableData" style="width: 100%">
           <el-table-column prop="supplierId" label="编号" width="80"></el-table-column>
