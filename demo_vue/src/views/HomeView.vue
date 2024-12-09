@@ -38,7 +38,7 @@ import router from '@/router';
       </span>
     </el-header>
     <el-container height="100%">
-      <el-aside class="aside">
+      <el-aside class="aside" height="100%">
         <el-menu active-text-color="#ffd04b" background-color="#2C2C2C" class="el-menu-vertical-demo e-menu"
           text-color="#fff" @open="handleOpen" @close="handleClose" default-active="/BusinessManagement/SaleChart"
           :router="true">
