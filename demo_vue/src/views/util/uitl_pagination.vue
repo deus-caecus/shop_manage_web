@@ -1,30 +1,14 @@
 
 <template>
-  <div class="pagination-container">
-    <el-pagination
-      background
-      layout="prev, pager, next, jumper"
-      :total="totalItems"
-      :current-page.prop="currentPage"
-      @current-change="handleCurrentChange"
-    >
-      <template #prev>
-        <span>首页</span>
-      </template>
-      <template #next>
-        <span>尾页</span>
-      </template>
-      <template #prev-text>
-        <span>&lt;&lt;上一页</span>
-      </template>
-      <template #next-text>
-        <span>下一页&gt;&gt;</span>
-      </template>
-    </el-pagination>
-    <div class="page-info">
-      第{{ currentPage }}页 共{{ totalPages }}页
-    </div>
-  </div>
+      <el-pagination
+        @size-change="handleSizeChange"
+        @current-change="handleCurrentChange"
+        :current-page="currentPage"
+        :page-sizes="[10, 20, 30, 40]"
+        :page-size="pageSize"
+        layout="total, sizes, prev, pager, next, jumper"
+        :total="totalItems"
+      ></el-pagination>
 </template>
 
 <script>

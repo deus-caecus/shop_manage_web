@@ -42,7 +42,7 @@
         background
         layout="prev, pager, next, jumper"
         :total="totalItems"
-        :current-page.sync="currentPage"
+        :current-page.prop="currentPage"
         @current-change="handlePageChange"
       >
       </el-pagination>

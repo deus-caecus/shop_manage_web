@@ -6,12 +6,12 @@ const value = ref('')
 
 const member_status = [
   {
-    value: '正常',
-    label: 'normal'
+    value: 'normal',
+    label: '正常'
   },
   {
-    value: '禁用',
-    label: 'disabled'
+    value: 'disabled',
+    label: '禁用'
   }
 ]
 </script>
@@ -123,7 +123,7 @@ export default {
 
         <el-table-column prop="status" label="会员状态" width="150">
           <template #default="scope">
-            <el-select v-model="value" placeholder="Select" style="width: 120px">
+            <el-select v-model="value" placeholder="选择" style="width: 100px">
               <el-option
                 v-for="item in member_status"
                 :key="item.value"
@@ -134,13 +134,16 @@ export default {
 
       </template>
         </el-table-column>
-        <el-table-column label="操作" width="150">
-          <template #default="scope">
-            <el-checkbox v-model="scope.row.checked" />
-            <el-button type="primary" size="small" @click="handleEdit(scope.row)">编辑</el-button>
-            <el-button type="danger" size="small" @click="handleDelete(scope.row)">删除</el-button>
-          </template>
-        </el-table-column>
+          <el-table-column label="操作" width="170" >
+            <template #header>
+              <span style="margin-left:30px; display: flex;">操作</span> <!-- 使用flex布局和margin-left: auto;使文本靠右 -->
+            </template>
+            <template #default="scope">
+              <el-checkbox v-model="scope.row.checked" style="margin: 10px ;" />
+              <el-button type="primary" size="small" @click="handleEdit(scope.row)">编辑</el-button>
+              <el-button type="danger" size="small" @click="handleDelete(scope.row)">删除</el-button>
+            </template>
+          </el-table-column>
       </el-table>
       </el-main>
       <el-footer>

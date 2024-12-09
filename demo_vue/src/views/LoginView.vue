@@ -11,9 +11,11 @@ const loginData = ref({
   account: "",
   passwordHash: ""
 })
-const login = async () => {
-  let result = await loginService(loginData.value);
-  console.log("响应结果", result)
+const login = () => {
+
+  console.log("ssssss");
+  let result = loginService(loginData);
+  console.log(result)
   if (result.code == 200) {
     console.log(tokenStore);
     console.log(typeof tokenStore);
@@ -54,7 +56,11 @@ const clearLoginData = () => {
         <el-form-item label="验证码    ">
           <el-input />
         </el-form-item>
+<<<<<<< HEAD
         <el-button @click="login(), clearLoginData">登录</el-button>
+=======
+        <el-button @click=" login()/* clearLoginData() */ ">登录</el-button>
+>>>>>>> df1fb25 (页面一修)
       </el-form>
     </div>
   </div>

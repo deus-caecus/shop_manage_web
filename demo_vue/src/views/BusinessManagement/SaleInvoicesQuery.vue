@@ -1,35 +1,22 @@
 <template>
-  <div class="sales-receipt-query-container">
-    <el-row>
-      <el-col :span="6">
-        <el-date-picker
-          v-model="startDate"
-          type="date"
-          placeholder="选择开始日期"
-          format="yyyy-MM-dd"
-          value-format="yyyy-MM-dd"
-        ></el-date-picker>
+  <div>
+    <el-row style="margin-bottom: 20px;">
+      <el-col :span="8">
+          <el-date-picker v-model="value2" type="daterange" unlink-panels range-separator="至"
+            start-placeholder="开始日期" end-placeholder="结束日期" :shortcuts="shortcuts" :size="size" />
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
       </el-col>
-      <el-col :span="6">
-        <span>至</span>
-        <el-date-picker
-          v-model="endDate"
-          type="date"
-          placeholder="选择结束日期"
-          format="yyyy-MM-dd"
-          value-format="yyyy-MM-dd"
-        ></el-date-picker>
-      </el-col>
-      <el-col :span="6">
+      <el-col :span="5">
         <el-select v-model="receiptType" placeholder="全部单据">
           <el-option v-for="item in receiptTypes" :key="item.value" :label="item.label" :value="item.value"></el-option>
         </el-select>
       </el-col>
-      <el-col :span="6">
+      <el-col :span="6" style=" display: flex; align-items: center;margin-left: 10px;">
         <el-input v-model="receiptNumber" placeholder="请输入流水单号"></el-input>
         <el-button type="primary" @click="searchReceipts">查询</el-button>
       </el-col>
-      <el-col :span="6">
+      <el-col :span="3" style="margin-left: 10px;">
         <el-button type="primary" @click="exportReceipts">导出</el-button>
       </el-col>
     </el-row>
@@ -120,9 +107,6 @@ export default {
 </script>
 
 <style scoped>
-.sales-receipt-query-container {
-  padding: 20px;
-}
 
 .status-container {
   display: flex;

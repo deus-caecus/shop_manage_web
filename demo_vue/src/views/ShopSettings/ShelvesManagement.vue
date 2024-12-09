@@ -1,11 +1,14 @@
 <template>
   <div class="container">
-    <el-collapse v-model="activeNames">
-      <el-collapse-item title="A区" name="1">
+    <el-collapse v-model="activeNames" >
+      <el-collapse-item title="A区" name="1" class>
         <div class="content">
           <div>货区：A1</div>
           <div>货区：A2</div>
           <div>货区：A3</div>
+          <el-button class = "small-button" >
+            <el-icon><Plus /></el-icon>
+          </el-button>
         </div>
       </el-collapse-item>
       <el-collapse-item title="B区" name="2">
@@ -13,6 +16,9 @@
           <div>货区：B1</div>
           <div>货区：B2</div>
           <div>货区：B3</div>
+          <el-button class="small-button" >
+              <el-icon><Plus /></el-icon>
+          </el-button>
         </div>
       </el-collapse-item>
       <el-collapse-item title="C区" name="3">
@@ -20,6 +26,10 @@
           <div>货区：C1</div>
           <div>货区：C2</div>
           <div>货区：C3</div>
+          <el-button class="small-button" >
+            <el-icon><Plus /></el-icon>
+          </el-button>
+
         </div>
       </el-collapse-item>
     </el-collapse>
@@ -28,8 +38,7 @@
 </template>
 
 <script>
-import { ElCollapse, ElCollapseItem, ElButton } from 'element-plus';
-
+import { ElCollapse, ElCollapseItem, ElButton, } from 'element-plus';
 export default {
   components: {
     ElCollapse,
@@ -57,6 +66,12 @@ export default {
 </script>
 
 <style scoped>
+
+/* 可选：确保图标和文本之间有足够的间距 */
+.small-button .el-icon-plus {
+  margin-right: 4px; /* 根据需要调整间距 */
+}
+
 .container {
   max-width: 600px;
   margin: 0 auto;
@@ -66,6 +81,7 @@ export default {
   padding: 10px;
   border: 1px solid #ddd;
   border-radius: 4px;
+
 }
 
 .el-collapse {

@@ -1,27 +1,3 @@
-<template>
-  <div class="image-container">
-    <div v-for="(image, index) in images" :key="index" class="image-item">
-      <img :src="image" alt="Image" class="image-preview" />
-      <el-button type="text" @click="removeImage(index)">删除</el-button>
-    </div>
-    <div class="add-image">
-      <el-upload
-        class="upload-demo"
-        action="/upload"
-        :on-success="handleSuccess"
-        :before-upload="beforeUpload"
-        :on-remove="handleRemove"
-        :on-change="handleChange"
-        :file-list="fileList"
-        list-type="picture"
-        :auto-upload="false"
-      >
-        <el-button slot="trigger" type="primary" icon="el-icon-plus">点击上传</el-button>
-        <div slot="tip" class="el-upload__tip">只能上传jpg/png文件，且不超过500kb</div>
-      </el-upload>
-    </div>
-  </div>
-</template>
 
 <script>
 import { ElButton, ElUpload } from 'element-plus';
@@ -69,33 +45,51 @@ export default {
 };
 </script>
 
-<style scoped>
+
+<template>
+<div class="image-container">
+  <div v-for="(image, index) in images" :key="index" class="image-item">
+    <img :src="image" alt="Image" class="image-preview" />
+    <el-button type="text" @click="removeImage(index)">删除</el-button>
+  </div>
+  <div class="add-image">
+    <el-upload
+      class="upload-demo"
+      action="/upload"
+      :on-success="handleSuccess"
+      :before-upload="beforeUpload"
+      :on-remove="handleRemove"
+      :on-change="handleChange"
+      :file-list="fileList"
+      list-type="picture"
+      :auto-upload="false"
+    >
+      <el-button slot="trigger" type="primary" icon="el-icon-plus">点击上传</el-button>
+      <div slot="tip" class="el-upload__tip">只能上传jpg/png文件，且不超过500kb</div>
+    </el-upload>
+  </div>
+</div>
+</template>
+<style>
 .image-container {
   display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
+  flex-direction:row; /* 让子元素垂直排列 */
 }
 
-.image-item {
-  width: 200px;
-  height: 200px;
-  border: 1px solid #ccc;
+.image-item,
+.add-image {
+  margin-bottom: 10px; /* 可选：为元素之间添加间距 */
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: center; /* 垂直居中对齐 */
 }
 
 .image-preview {
-  max-width: 100%;
-  max-height: 100%;
+  max-width: 100%; /* 确保图片不会超出容器宽度 */
+  height: auto; /* 保持图片的宽高比 */
 }
 
+/* 如果需要，可以为 .add-image 添加额外样式 */
 .add-image {
-  width: 200px;
-  height: 200px;
-  border: 1px solid #ccc;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  justify-content: center; /* 水平居中对齐 */
 }
 </style>

@@ -23,7 +23,7 @@
       </el-table-column>
     </el-table>
 
-    <div class="supplier-selection">
+    <div class="supplier-selection" >
       <span>选择供应商：</span>
       <el-select v-model="selectedSupplier" placeholder="请选择供应商">
         <el-option v-for="supplier in suppliers" :key="supplier.value" :label="supplier.label" :value="supplier.value"></el-option>
@@ -116,6 +116,7 @@ export default {
 .supplier-selection {
   display: flex;
   align-items: center;
+  margin-top: 70px;
   margin-bottom: 20px;
 }
 
