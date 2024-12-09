@@ -1,63 +1,56 @@
+<script setup>
+import { ref, onMounted } from 'vue';
+import { ElMessage } from 'element-plus';
+
+const tableData = ref([]);
+    const showAddForm = ref(false);
+    const formData = ref({
+      名称: '',
+      联系人: '',
+      联系电话: '',
+      银行卡号: '',
+      开户行: '',
+      业务范围: '',
+      状态: ''
+    });
+
+    const handleAdd = async () => {
+      try {
+        const response = await axios.post('/api/addData', formData.value);
+        if (response.status === 200) {
+          ElMessage.success('添加成功');
+          tableData.value.push(response.data);
+          showAddForm.value = false;
+        }
+      } catch (error) {
+        ElMessage.error('添加失败');
+        console.error('添加失败:', error);
+      }
+    };
+
+    const handleEdit = (index, row) => {
+      // Handle edit
+    };
+
+    const handleDelete = (index, row) => {
+      // Handle delete
+    };
+
+</script>
 <script>
-import { ElTable, ElTableColumn, ElTag, ElCheckbox, ElButton } from 'element-plus';
+import { ElTable, ElTableColumn, ElTag, /* ElCheckbox, */ ElButton } from 'element-plus';
 
 export default {
+
   components: {
     ElTable,
     ElTableColumn,
     ElTag,
-    ElCheckbox,
+    // ElCheckbox,
     ElButton,
   },
   data() {
-    return {
-      tableData: [
-        {
-          id: 1,
-          name: '城北市场',
-          contactName: '李小姐',
-          contactPhone: '17789455648',
-          bankCardNumber: '12345678901234567',
-          bankName: '工商银行',
-          businessScope: '副食、小吃、百货',
-          status: '停用',
-          checked: false,
-        },
-        {
-          id: 2,
-          name: '城北大市场',
-          contactName: '王先生',
-          contactPhone: '14712345678',
-          bankCardNumber: '12345678901234567',
-          bankName: '工商银行',
-          businessScope: '饮品、日化',
-          status: '正常',
-          checked: false,
-        },
-        {
-          id: 3,
-          name: '城北二市场',
-          contactName: '王先生',
-          contactPhone: '14712345678',
-          bankCardNumber: '12345678901234567',
-          bankName: '工商银行',
-          businessScope: '副食、百货',
-          status: '正常',
-          checked: false,
-        },
-        {
-          id: 4,
-          name: '城北五市场',
-          contactName: '王先生',
-          contactPhone: '14712345678',
-          bankCardNumber: '12345678901234567',
-          bankName: '工商银行',
-          businessScope: '小吃',
-          status: '正常',
-          checked: false,
-        },
-      ],
-    };
+
   },
   methods: {
     handleEdit(row) {
@@ -93,16 +86,48 @@ export default {
             <span style="margin-left:30px; display: flex;">操作</span> <!-- 使用flex布局和margin-left: auto;使文本靠右 -->
           </template>
           <template #default="scope">
-            <el-checkbox v-model="scope.row.checked" style="margin: 10px ;" />
+            <!-- <el-checkbox v-model="scope.row.checked" style="margin: 10px ;" /> -->
             <el-button type="primary" size="small" @click="handleEdit(scope.row)">编辑</el-button>
             <el-button type="danger" size="small" @click="handleDelete(scope.row)">删除</el-button>
           </template>
         </el-table-column>
+        <el-dialog v-model="showAddForm" title="添加数据">
+      <el-form :model="formData" label-width="80px">
+        <el-form-item label="名称">
+          <el-input v-model="formData.名称"></el-input>
+        </el-form-item>
+        <el-form-item label="联系人">
+          <el-input v-model="formData.联系人"></el-input>
+        </el-form-item>
+        <el-form-item label="联系电话">
+          <el-input v-model="formData.联系电话"></el-input>
+        </el-form-item>
+        <el-form-item label="银行卡号">
+          <el-input v-model="formData.银行卡号"></el-input>
+        </el-form-item>
+        <el-form-item label="开户行">
+          <el-input v-model="formData.开户行"></el-input>
+        </el-form-item>
+        <el-form-item label="业务范围">
+          <el-input v-model="formData.业务范围"></el-input>
+        </el-form-item>
+        <el-form-item label="状态">
+          <el-input v-model="formData.状态"></el-input>
+        </el-form-item>
+      </el-form>
+      <template #footer>
+        <span class="dialog-footer">
+          <el-button @click="showAddForm = false">取消</el-button>
+          <el-button type="primary" @click="handleAdd">添加</el-button>
+        </span>
+      </template>
+    </el-dialog>
       </el-table>
       </el-main>
       <el-footer>
-        <el-button round>添加</el-button>
-        <el-button round>删除</el-button>
+        <el-button round @click="showAddForm = true">添加</el-button>
+
+        <!-- <el-button  round>删除</el-button> -->
       </el-footer>
     </el-container>
   </div>

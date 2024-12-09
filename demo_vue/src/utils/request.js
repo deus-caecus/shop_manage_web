@@ -32,4 +32,15 @@ instance.interceptors.request.use(
   },
 )
 
+instance.interceptors.request.use(
+  (config)=>{
+    if(config.url !== "/login"){
+      config.headers.token = sessionStorage.getItem('token');
+    }
+    return config;
+  },
+  (err)=>{
+    return Promise.reject(err) //异步的状态转化成失败的状态
+  }
+)
 export default instance
