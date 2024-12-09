@@ -1,6 +1,6 @@
 <script setup>
-import { ref, onMounted } from 'vue';
-import { ElMessage } from 'element-plus';
+import { ref } from 'vue';
+
 
 const tableData = ref([]);
     const showAddForm = ref(false);
@@ -13,28 +13,6 @@ const tableData = ref([]);
       业务范围: '',
       状态: ''
     });
-
-    const handleAdd = async () => {
-      try {
-        const response = await axios.post('/api/addData', formData.value);
-        if (response.status === 200) {
-          ElMessage.success('添加成功');
-          tableData.value.push(response.data);
-          showAddForm.value = false;
-        }
-      } catch (error) {
-        ElMessage.error('添加失败');
-        console.error('添加失败:', error);
-      }
-    };
-
-    const handleEdit = (index, row) => {
-      // Handle edit
-    };
-
-    const handleDelete = (index, row) => {
-      // Handle delete
-    };
 
 </script>
 <script>
