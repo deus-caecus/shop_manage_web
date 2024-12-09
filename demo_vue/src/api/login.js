@@ -1,4 +1,4 @@
-import request from '@/utils/request'
+import request from '@/utils/interceptor'
 
 export const loginService = (loginData) => {
   return request
