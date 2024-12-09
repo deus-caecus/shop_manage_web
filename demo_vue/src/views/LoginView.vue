@@ -2,18 +2,24 @@
 import { loginService } from '@/api/login';
 import router from '@/router';
 import { ref } from 'vue';
+import { useTokenStore } from '@/stores/token.js'
+
+//调用useTokenStore得到状态
+const tokenStore = useTokenStore();
 const loginData = ref({
   storeId: "",
   account: "",
   passwordHash: ""
 })
 const login = async () => {
-  console.log("ssssss");
   let result = await loginService(loginData.value);
-  console.log("2222", result)
+  console.log("响应结果", result)
   if (result.code == 200) {
+    console.log(tokenStore);
+    console.log(typeof tokenStore);
     alert('登录成功!')
     router.push('/BusinessManagement/SaleChart')
+    tokenStore.setToken(result.data)
   } else {
     alert('登录失败!')
   }

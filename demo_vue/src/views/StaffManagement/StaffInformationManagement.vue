@@ -1,8 +1,27 @@
+<script setup>
+import { ref, onMounted } from 'vue';
+import { empMsgService } from '@/api/user';
+const employees = ref([]);
+const showEmployee = async () => {
+  const res = await empMsgService();
+  employees.value = res.data;
+  console.log(typeof res);
+  console.log(typeof employees.value);
+  console.log("showemployee方法", res.data);
+
+}
+onMounted(() => {
+  showEmployee();
+  console.log("挂载");
+
+});
+
+</script>
 <template>
   <div class="employee-container">
     <h1>员工信息表</h1>
     <el-button type="primary" @click="showAddEmployeeForm = true">添加员工</el-button>
-    <el-dialog title="添加员工" :visible.sync="showAddEmployeeForm" width="30%">
+    <el-dialog title="添加员工" v-model:visible="showAddEmployeeForm" width="30%">
       <el-form :model="newEmployee" label-width="80px">
         <el-form-item label="员工姓名">
           <el-input v-model="newEmployee.name"></el-input>
@@ -23,19 +42,21 @@
           </el-select>
         </el-form-item>
       </el-form>
-      <span slot="footer" class="dialog-footer">
-        <el-button @click="showAddEmployeeForm = false">取 消</el-button>
-        <el-button type="primary" @click="addEmployee">确 定</el-button>
-      </span>
+      <template v-slot:footer>
+        <span class="dialog-footer">
+          <el-button @click="showAddEmployeeForm = false">取 消</el-button>
+          <el-button type="primary" @click="addEmployee">确 定</el-button>
+        </span>
+      </template>
     </el-dialog>
-    <el-table :data="employees" style="width: 100%">
-      <el-table-column prop="name" label="员工姓名"></el-table-column>
-      <el-table-column prop="position" label="职位"></el-table-column>
-      <el-table-column prop="username" label="账号"></el-table-column>
-      <el-table-column prop="phone" label="联系电话"></el-table-column>
-      <el-table-column prop="status" label="账户状态"></el-table-column>
+    <el-table :data="employees" style="width: 100%" id="empTable">
+      <el-table-column prop="userName" label="员工姓名"></el-table-column>
+      <el-table-column prop="positionName" label="职位"></el-table-column>
+      <el-table-column prop="account" label="账号"></el-table-column>
+      <el-table-column prop="connectInfo" label="联系电话"></el-table-column>
+      <!-- <el-table-column prop="status" label="账户状态"></el-table-column> -->
       <el-table-column label="操作">
-        <template slot-scope="scope">
+        <template v-slot="scope">
           <el-button @click="editEmployee(scope.$index)">编辑</el-button>
           <el-button type="danger" @click="deleteEmployee(scope.$index)">删除</el-button>
         </template>
@@ -43,46 +64,6 @@
     </el-table>
   </div>
 </template>
-
-<script>
-export default {
-  data() {
-    return {
-      employees: [
-        { name: '张三', position: '店长', username: 'admin', phone: '155xxxxxxx', status: '正常' },
-      ],
-      showAddEmployeeForm: false,
-      newEmployee: {
-        name: '',
-        position: '',
-        username: '',
-        phone: '',
-        status: '',
-      },
-    };
-  },
-  methods: {
-    addEmployee() {
-      this.employees.push({ ...this.newEmployee });
-      this.showAddEmployeeForm = false;
-      this.newEmployee = {
-        name: '',
-        position: '',
-        username: '',
-        phone: '',
-        status: '',
-      };
-    },
-    editEmployee(index) {
-      // Implement edit functionality
-      console.log('Editing employee at index:', index);
-    },
-    deleteEmployee(index) {
-      this.employees.splice(index, 1);
-    },
-  },
-};
-</script>
 
 <style scoped>
 .employee-container {

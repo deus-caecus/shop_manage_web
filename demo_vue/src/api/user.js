@@ -1,8 +1,10 @@
 import request from '@/utils/request'
-export const loginService = (loginData) => {
+export const empMsgService = () => {
   return request
-    .post('/login', loginData)
+    .get('/Employee')
     .then((response) => {
+      console.log('emp响应', response)
+      console.log('emp响应数据', typeof response.data)
       return response
     })
     .catch(() => {
