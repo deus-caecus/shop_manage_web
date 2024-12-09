@@ -1,7 +1,6 @@
 
 <script setup>
 import {ref} from 'vue'
-import Pagination from '@/views/util/uitl_pagination.vue'
 const value = ref('')
 
 const member_status = [
@@ -26,7 +25,6 @@ export default {
     ElTag,
     ElCheckbox,
     ElButton,
-    Pagination
   },
   data() {
 

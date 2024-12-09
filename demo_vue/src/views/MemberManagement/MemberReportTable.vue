@@ -1,5 +1,4 @@
 <script setup>
-import Pagination from '@/views/util/uitl_pagination.vue'
 </script>
 <script>
 
@@ -63,7 +62,7 @@ export default {
       </el-table-column>
     </el-table>
     <el-footer>
-      <Pagination/>
+
     </el-footer>
   </div>
 </template>
