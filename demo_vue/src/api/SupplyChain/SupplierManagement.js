@@ -2,7 +2,7 @@ import interceptor from '@/utils/request'
 
 export const supplierQueryService = () => {
   return interceptor
-    .get('/supplier'/*url*/)
+    .get('/supplier')
     .then(response => {
       return response.data
     }).catch(error => {
@@ -12,7 +12,7 @@ export const supplierQueryService = () => {
 
 export const supplierAddService = (newSupplier) => {
   return interceptor
-  .post('/supplier/add'/*  */,newSupplier)
+  .post('/supplier/add',newSupplier)
   .then(response=>{
     return response.data
   }).catch(error=>{

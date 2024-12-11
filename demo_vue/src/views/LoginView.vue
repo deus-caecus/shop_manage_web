@@ -56,11 +56,7 @@ const clearLoginData = () => {
         <el-form-item label="验证码    ">
           <el-input />
         </el-form-item>
-<<<<<<< HEAD
         <el-button @click="login(), clearLoginData">登录</el-button>
-=======
-        <el-button @click=" login()/* clearLoginData() */ ">登录</el-button>
->>>>>>> df1fb25 (页面一修)
       </el-form>
     </div>
   </div>
