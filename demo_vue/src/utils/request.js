@@ -8,7 +8,7 @@ const instance = axios.create({ baseURL })
 
 instance.interceptors.response.use(
   (result) => {
-    return result.data
+    return result
   },
   (err) => {
     alert('token未生效，请重新登录')
@@ -21,7 +21,7 @@ instance.interceptors.request.use(
     //在发送请求之前做什么
     let tokenStore = useTokenStore()
     //如果token中有值，在携带
-    if (tokenStore.token) {
+    if (tokenStore.token &&config.url !== '/login') {
       config.headers.Authorization = tokenStore.token
     }
     return config
@@ -33,3 +33,4 @@ instance.interceptors.request.use(
 )
 
 export default instance
+

@@ -1,6 +1,6 @@
 import interceptor from '@/utils/request'
 
-export const supplierQueryService = () => {
+export const supplierQueryService = async() => {
   return interceptor
     .get('/supplier')
     .then(response => {
@@ -10,8 +10,8 @@ export const supplierQueryService = () => {
     })
 }
 
-export const supplierAddService = (newSupplier) => {
-  return interceptor
+export const supplierAddService = async (newSupplier) => {
+  return await interceptor
   .post('/supplier/add',newSupplier)
   .then(response=>{
     return response.data
@@ -20,7 +20,7 @@ export const supplierAddService = (newSupplier) => {
   })
 }
 
-export const supplierDeleteService = (supplierID) =>{
+export const supplierDeleteService = async (supplierID) =>{
   return interceptor
   .delete(`/delete/${supplierID}`)
   .then(response=>{
@@ -30,7 +30,7 @@ export const supplierDeleteService = (supplierID) =>{
   })
 }
 
-export const supplierUpdateService = (modifiledSupplier) =>{
+export const supplierUpdateService = async (modifiledSupplier) =>{
   return interceptor
   .put('/supplier/update',modifiledSupplier)
   .then(response=>{

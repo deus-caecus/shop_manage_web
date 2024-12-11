@@ -1,14 +1,9 @@
 <script setup>
 import { supplierQueryService, supplierAddService, supplierDeleteService, supplierUpdateService } from '@/api/SupplyChain/SupplierManagement'
-import { ref } from 'vue';
+import { ref ,onMounted} from 'vue';
 
 const supplierList = ref([])
- supplierList.value = supplierQueryService()
-
-const supplierDelete = function (supplierID) {
-  let data = supplierDeleteService(supplierID)
-}
-const showAddForm = ref(false);
+const showAddForm = ref(true);
 const formData = ref({
   name: '',
   contactPerson: '',
@@ -18,31 +13,29 @@ const formData = ref({
   isNormal: ''
 });
 
-</script>
-<script>
 import { ElTable, ElTableColumn, ElTag, /* ElCheckbox, */ ElButton } from 'element-plus';
 
-export default {
+   const handleQuery = async()=> {
+      supplierList.value = supplierQueryService();
+    }
 
-  components: {
-    ElTable,
-    ElTableColumn,
-    ElTag,
-    // ElCheckbox,
-    ElButton,
-  },
-
-  methods: {
-    handleEdit(row) {
+    const handleEdit = async (row) => {
       console.log('Edit row:', row);
-      // Implement your edit logic here
-    },
-    handleDelete(row) {
+      supplierUpdateService(row);
+    }
+    const handleDelete = async(row) => {
       console.log('Delete row:', row);
-      // Implement your delete logic here
-    },
-  },
-};
+      supplierDeleteService(row.supplierId);
+    }
+    const handleAdd = async (formData) => {
+      console.log('Add row', formData)
+      supplierAddService(formData.value)
+    }
+
+    onMounted(() =>{
+      handleQuery();
+    })
+
 </script>
 <template>
   <div class="common-layout">
@@ -72,7 +65,7 @@ export default {
               <el-button type="danger" size="small" @click="handleDelete(scope.row)">删除</el-button>
             </template>
           </el-table-column>
-          <el-dialog  @click="showAddForm = true" title="添加数据">
+          <el-dialog @click="showAddForm = true" title="添加数据">
             <el-form :model="formData" label-width="80px">
               <el-form-item label="名称">
                 <el-input v-model="formData.name"></el-input>

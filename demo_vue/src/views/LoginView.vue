@@ -11,10 +11,10 @@ const loginData = ref({
   account: "",
   passwordHash: ""
 })
-const login = () => {
+const login = async () => {
 
   console.log("ssssss");
-  let result = loginService(loginData);
+  let result = await loginService( loginData.value);
   console.log(result)
   if (result.code == 200) {
     console.log(tokenStore);

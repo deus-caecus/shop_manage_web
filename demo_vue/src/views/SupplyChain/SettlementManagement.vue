@@ -1,7 +1,7 @@
 <script setup>
 
 import { ref } from 'vue'
-const value = ref('')
+
 
 const payment_status = [
   {
