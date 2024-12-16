@@ -2,6 +2,14 @@
 import { ref, onMounted } from 'vue';
 import { empMsgService } from '@/api/user';
 const employees = ref([]);
+const showAddEmployeeForm = ref(false)
+const newEmployee = ref({
+  name:'',
+  position:'',
+  username:'',
+  phone:'',
+  status:'',
+})
 const showEmployee = async () => {
   const res = await empMsgService();
   employees.value = res.data;
@@ -21,7 +29,7 @@ onMounted(() => {
   <div class="employee-container">
     <h1>员工信息表</h1>
     <el-button type="primary" @click="showAddEmployeeForm = true">添加员工</el-button>
-    <el-dialog title="添加员工" v-model:visible="showAddEmployeeForm" width="30%">
+    <el-dialog title="添加员工" v-model="showAddEmployeeForm" width="30%">
       <el-form :model="newEmployee" label-width="80px">
         <el-form-item label="员工姓名">
           <el-input v-model="newEmployee.name"></el-input>

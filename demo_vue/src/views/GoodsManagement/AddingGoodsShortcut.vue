@@ -24,6 +24,7 @@
       <el-form-item>
         <el-button type="primary" @click="addProduct">添加</el-button>
         <el-button @click="resetForm">重置</el-button>
+        <el-button style="display:flex;justify-content:flex-end;">保存</el-button>
       </el-form-item>
     </el-form>
 

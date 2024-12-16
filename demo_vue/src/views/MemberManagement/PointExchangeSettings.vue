@@ -9,7 +9,8 @@
         <el-option label="分类1" value="category1"></el-option>
         <el-option label="分类2" value="category2"></el-option>
       </el-select>
-      <el-input v-model="searchQuery" placeholder="请输入商品名称/#条形码/-拼音码" style="width: 300px; margin-right: 20px;"></el-input>
+      <el-input v-model="searchQuery" placeholder="请输入商品名称/#条形码/-拼音码"
+        style="width: 300px; margin-right: 20px;"></el-input>
       <el-button type="primary" @click="searchItems">查询</el-button>
     </div>
     <el-table :data="exchangeItems" style="width: 100%">
@@ -25,22 +26,25 @@
         </template>
       </el-table-column>
     </el-table>
+    <el-button type="primary">
+      保存
+    </el-button>
     <div class="exchangeableGoods">
       <div class="title">可兑换商品：</div>
       <div>
-      <el-table :data="selectedItems" style="width: 100%">
-        <el-table-column prop="id" label="序号"></el-table-column>
-        <el-table-column prop="name" label="商品名称"></el-table-column>
-        <el-table-column prop="code" label="商品编号"></el-table-column>
-        <el-table-column prop="price" label="售价"></el-table-column>
-        <el-table-column prop="points" label="所需积分"></el-table-column>
-        <el-table-column label="操作">
-          <template slot-scope="scope">
-            <el-button @click="removeSelectedItem(scope.$index)">移除</el-button>
-          </template>
-        </el-table-column>
-      </el-table>
-    </div>
+        <el-table :data="selectedItems" style="width: 100%">
+          <el-table-column prop="id" label="序号"></el-table-column>
+          <el-table-column prop="name" label="商品名称"></el-table-column>
+          <el-table-column prop="code" label="商品编号"></el-table-column>
+          <el-table-column prop="price" label="售价"></el-table-column>
+          <el-table-column prop="points" label="所需积分"></el-table-column>
+          <el-table-column label="操作">
+            <template slot-scope="scope">
+              <el-button @click="removeSelectedItem(scope.$index)">移除</el-button>
+            </template>
+          </el-table-column>
+        </el-table>
+      </div>
       <el-button type="primary" @click="saveSelectedItems">保存</el-button>
     </div>
   </div>

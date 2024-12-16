@@ -1,14 +1,21 @@
 <template>
   <div class="employee-container">
-    <h1>员工信息表</h1>
-    <el-button type="primary" @click="showAddEmployeeForm = true">添加员工</el-button>
-    <el-dialog title="添加员工" :visible.sync="showAddEmployeeForm" width="30%">
+    <h1>职位权限表</h1>
+    <el-button type="primary" @click="showAddEmployeeForm = true">添加权限信息</el-button>
+    <el-dialog title="添加权限信息" v-model="showAddEmployeeForm" width="30%">
       <el-form :model="newEmployee" label-width="80px">
         <el-form-item label="名称">
           <el-input v-model="newEmployee.name"></el-input>
         </el-form-item>
         <el-form-item label="职位权限">
-          <el-input v-model="newEmployee.permissions"></el-input>
+          <el-checkbox v-model="checkedItems" label="营业管理"></el-checkbox>
+          <el-checkbox v-model="checkedItems" label="商品管理"></el-checkbox>
+          <el-checkbox v-model="checkedItems" label="库存管理"></el-checkbox>
+          <el-checkbox v-model="checkedItems" label="店铺设置"></el-checkbox>
+          <el-checkbox v-model="checkedItems" label="员工管理"></el-checkbox>
+          <el-checkbox v-model="checkedItems" label="副屏广告"></el-checkbox>
+          <el-checkbox v-model="checkedItems" label="会员管理"></el-checkbox>
+          <el-checkbox v-model="checkedItems" label="供应管理"></el-checkbox>
         </el-form-item>
       </el-form>
       <span slot="footer" class="dialog-footer">

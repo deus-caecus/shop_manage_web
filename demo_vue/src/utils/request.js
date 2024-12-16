@@ -8,7 +8,13 @@ const instance = axios.create({ baseURL })
 
 instance.interceptors.response.use(
   (result) => {
-    return result
+    const{ status} = result
+    if(status ===200)
+    {return result}
+    else if(status !== 200)
+    {
+      alert(status)
+    }
   },
   (err) => {
     alert('token未生效，请重新登录')
